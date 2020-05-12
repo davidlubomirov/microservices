@@ -16,6 +16,9 @@ func main() {
 		os.Exit(config.ExitInvalidEnvironmentConfiguration)
 	}
 
+	config.ConnectAuthService()
+	logger.Debugln("auth service connected")
+
 	logger.Infoln("setting proxy-server routes")
 	router := gin.Default()
 
@@ -23,7 +26,7 @@ func main() {
 	{
 		proxy_v1.GET("/status", routes.Status)
 		proxy_v1.POST("/auth/login", routes.Login)
-		proxy_v1.POST("/auth/register", routes.Login)
+		proxy_v1.POST("/auth/register", routes.Register)
 	}
 
 	router.Run(":8080")

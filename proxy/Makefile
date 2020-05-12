@@ -9,4 +9,4 @@ run-dev:
 	source .env && go run ./cmd/proxy-server/main.go
 
 run-http-samples:
-	sudo chmod +x ${CURL_SAMPLES_FILE} && ./${CURL_SAMPLES_FILE}
+	./${CURL_SAMPLES_FILE}
